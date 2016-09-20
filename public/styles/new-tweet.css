@@ -1,0 +1,22 @@
+.new-tweet {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 0 2em;
+  background-color: pink;
+}
+
+.new-tweet h2 {
+  border-bottom: 2px solid black;
+}
+
+.new-tweet textarea {
+  width: 100%;
+  padding-left: 8px;
+  margin: 0 auto;
+}
+
+.new-tweet .counter {
+  float: right;
+}
