@@ -1,4 +1,5 @@
 //sudo mongod --config /etc/mongod.conf
+//npm start local
 "use strict";
 
 require('dotenv').config();
