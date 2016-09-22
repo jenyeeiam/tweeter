@@ -36,18 +36,13 @@ db.connect((dbInstance) => {
   app.use('/tweets', tweetsApi(dbInstance));
 
   app.post("/", (req, res) => {
-      console.log("Tweet length: ", req.body.text.length);
-      if (req.body.text.length === 0) {
-        //res.status(500).json({error: "fill in tweet"});
-      }
+    console.log("Tweet length: ", req.body.text.length);
     var date = moment((new Date()).getTime()).format('MMMM DD YYYY');
     dbInstance.collection(collectionName).insert({"content":req.body, "created_at": date, "user": userInfo }, function(err, tweetInfo){
       if (err) {
         return res.render(err);
       }
-      debugger;
-      // console.log("Inserted data:\n", tweetInfo.ops[0]);
-      // console.log("this is the req body", req.body);
+
       res.json({
         tweetBody: req.body.text,
         tweetObj: tweetInfo.ops[0]
