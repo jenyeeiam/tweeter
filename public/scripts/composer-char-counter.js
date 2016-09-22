@@ -12,4 +12,5 @@ $(document).ready(function(){
       counterElem.css('color', '#244751');
     }
   });
+
 });

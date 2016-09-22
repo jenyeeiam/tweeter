@@ -31,6 +31,10 @@
   position: relative;
 }
 
+.tweet:hover > header {
+  background-color: pink;
+}
+
 .avatar {
   width: 80px;
   height: 80px;
@@ -67,6 +71,7 @@
 
 .tweet .date {
   float: left;
+  padding: 5px;
 }
 
 .tweet .icons {
