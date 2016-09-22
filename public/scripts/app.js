@@ -4,8 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
 $(document).ready(function(){
+
 
   $('#compose').on('click', function(){
     $('.new-tweet').slideToggle();
@@ -24,11 +24,6 @@ $(document).ready(function(){
       ajaxPost();
     }
 
-    // var successHandler = function(data){
-    //   var html = createTweetElement(data.tweetObj);
-    //   console.log("making html");
-    //   $('.all-tweets').prepend(html);
-    // };
     //make post request
     function ajaxPost(){
       $.ajax({
@@ -57,7 +52,7 @@ $(document).ready(function(){
         }
     });
   }
-  //loadTweets()
+  loadTweets()
 
 
 //takes in dataArray
@@ -68,7 +63,7 @@ $(document).ready(function(){
     });
   }
 
-//construct html
+//constructs html
   function createTweetElement(tweetObject){
     var $tweet = $("<article></article>").addClass("tweet");
     //constructs the header
