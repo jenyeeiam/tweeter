@@ -22,7 +22,6 @@ db.connect((db) => {
       //changes the date to real dates
       results.ops.forEach(function(tweetObj) {
         var date = tweetObj.created_at;
-        //tweetObj.created_at = moment((new Date(tweetObj.created_at)).getTime()).format('MMMM DD YYYY');
         db.collection("tweets").update({created_at: date}, {$set: {created_at: moment((new Date(date)).getTime()).format('MMMM DD YYYY')}}, function(){
           console.log("im updating");
         });

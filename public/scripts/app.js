@@ -4,14 +4,20 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function(){
-
+$(function(){
 
   $('#compose').on('click', function(){
-    $('.new-tweet').slideToggle();
+    $('.new-tweet').toggle();
     $('textarea').focus();
   });
 
+  $('form').keypress(function (event) {
+    if (event.which == 13) {
+      event.preventDefault();
+      $('form').submit();
+      $('textarea').val('');
+    }
+  });
 
   $('form').on('submit', function(event){
     event.preventDefault();
@@ -19,13 +25,13 @@ $(document).ready(function(){
     if ($('textarea').val().length === 0) {
       alert("Fill in tweet box");
     } else if ($('textarea').val().length > 140) {
-      alert("Tweet too long");
+      alert("Tweet is too long");
     } else {
-      ajaxPost();
+      makeTweet();
     }
 
     //make post request
-    function ajaxPost(){
+    function makeTweet(){
       $.ajax({
         type: "POST",
         url: '/',
@@ -33,7 +39,6 @@ $(document).ready(function(){
         dataType: 'json',
         success: function(data){
           var html = createTweetElement(data.tweetObj);
-          console.log("making html");
           $('.all-tweets').prepend(html);
         }
       });
@@ -41,17 +46,18 @@ $(document).ready(function(){
 
   });
 
-
+//loads the seeded data
   function loadTweets(){
     $.ajax({
-        url: '/tweets',
-        method: 'GET',
-        success: function (tweets) {
-          console.log("Successfully loaded tweetDB");
-          renderTweets(tweets);
-        }
+      url: '/tweets',
+      method: 'GET',
+      success: function (tweets) {
+        console.log("Successfully loaded tweetDB");
+        renderTweets(tweets);
+      }
     });
   }
+
   loadTweets()
 
 
@@ -65,11 +71,19 @@ $(document).ready(function(){
 
 //constructs html
   function createTweetElement(tweetObject){
+    // var tweetTemplate = `
+    //   <article class="tweet">
+    //     ${tweetObject.user.handle}
+
+    //   </article>
+    // `;
+    // return $(tweetTemplate);
+
     var $tweet = $("<article></article>").addClass("tweet");
     //constructs the header
     var $tweetHeader = $("<header></header>");
     var $avatars = $("<img></img>").addClass("avatar").attr("src", tweetObject.user.avatars.small);
-    var $name = $("<span></span>").addClass("header");
+    var $name = $("<span class='header'></span>");
     var $handle = $("<span></span>").addClass("handle");
     $handle.text(tweetObject.user.handle);
     $name.text(tweetObject.user.name);

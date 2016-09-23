@@ -4,7 +4,7 @@ $(document).ready(function(){
     var characters = $(this).val().length;
     var liveCount = TWEET_MAX_LENGTH - characters;
     var counterElem = $(this).siblings('.counter');
-    counterElem[0].textContent = liveCount;
+    counterElem.text(liveCount);
     //change the text color if you max out tweet length
     if (liveCount < 0) {
       counterElem.css('color', 'red');

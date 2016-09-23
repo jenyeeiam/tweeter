@@ -30,7 +30,7 @@
   text-shadow: rgba(0,0,0,.4) 0 1px 0;
   color: #0e3033;
   font-size: 18px;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
   float: right;
   margin-top: 15px;
 }
