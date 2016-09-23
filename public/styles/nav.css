@@ -6,7 +6,7 @@
   background-color: #00a087;
   color: #e8fdff;
   padding: 0px 2em;
-  /*float: left;*/
+  z-index: 1;
 }
 
 #nav-bar .logo {
@@ -27,14 +27,15 @@
   background: white;
   padding: 12px 24px;
   border-radius: 11px;
-  text-shadow: rgba(0,0,0,.4) 0 1px 0;
-  color: #0e3033;
+  color: #00a087;
   font-size: 18px;
-  /*vertical-align: middle;*/
   float: right;
   margin-top: 15px;
 }
 
+
+
 #nav-bar button:hover {
-  background-color: #b07bbd;
+  color: #0e3033;
+  background-color: #dedede
 }

@@ -7,7 +7,7 @@
 $(function(){
 
   $('#compose').on('click', function(){
-    $('.new-tweet').toggle();
+    $('.new-tweet').slideToggle();
     $('textarea').focus();
   });
 
@@ -71,13 +71,6 @@ $(function(){
 
 //constructs html
   function createTweetElement(tweetObject){
-    // var tweetTemplate = `
-    //   <article class="tweet">
-    //     ${tweetObject.user.handle}
-
-    //   </article>
-    // `;
-    // return $(tweetTemplate);
 
     var $tweet = $("<article></article>").addClass("tweet");
     //constructs the header
@@ -96,9 +89,11 @@ $(function(){
     var $tweetFooter = $("<footer></footer>");
     var $dateCreated = $("<span></span>").addClass("date");
     $dateCreated.text(tweetObject.created_at);
-    var $iconsHeart = $("<img></img>").addClass("icons").attr("src", "/images/heart.png");
-    var $iconsRetweet = $("<img></img>").addClass("icons").attr("src", "/images/retweet.png");
+    var $iconsFlag = $("<img></img>").addClass("icons").attr("src", "/images/icon-flag.png");
+    var $iconsHeart = $("<img></img>").addClass("icons").attr("src", "/images/icon-like.png");
+    var $iconsRetweet = $("<img></img>").addClass("icons").attr("src", "/images/icon-retweet.png");
     $tweetFooter.append($dateCreated)
+                .append($iconsFlag)
                 .append($iconsHeart)
                 .append($iconsRetweet);
     //construct the full tweet

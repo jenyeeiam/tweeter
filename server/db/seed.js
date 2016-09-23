@@ -1,8 +1,5 @@
 "use strict";
-const moment      = require('moment');
-var today = moment((new Date()).getTime()).format('MMMM DD YYYY');
-console.log(today)
-
+const moment = require('moment');
 
 require('dotenv').config();
 const db     = require('../lib/db'),

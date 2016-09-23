@@ -5,7 +5,7 @@
   border-radius: 5px;
   padding: 8px;
   margin: 0 2em;
-  background-color: pink;
+  background-color: #dedede;
 }
 
 .new-tweet h2 {
@@ -33,12 +33,15 @@
 }
 
 .tweet:hover > header {
-  background-color: pink;
+  background-color: #dedede;
 }
 
 .avatar {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
+  margin: 10px 10px;
+  border: 1px;
+  border-radius: 7px;
   float: left;
 }
 .tweet header {
@@ -47,14 +50,15 @@
 }
 
 .tweet .header {
+  font-weight: bold;
   font-size: 1.5em;
-  line-height: 3.2;
-  padding-left: 15px;
+  line-height: 1.7;
+  padding-left: 7px;
 }
 
 .tweet .handle {
   float: right;
-  padding: 5px;
+  padding: 9px;
 }
 
 .tweet p {
@@ -75,11 +79,14 @@
   padding: 5px;
 }
 
-.tweet .icons {
+.tweet:hover > footer > .icons {
+  display: inline;
   float: right;
-  height: 20px;
-  width: 20px;
-  padding-top: 2px;
-  margin: 5px 2px;
+  height: 30px;
+  width: 27px;
+}
+
+.tweet .icons {
   display: none;
+
 }
